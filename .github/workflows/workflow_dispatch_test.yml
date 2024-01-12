@@ -1,0 +1,17 @@
+name: workflow dispatch test
+on:
+  workflow_dispatch:
+    inputs:
+      arg1:
+        description: "description foo"
+        required: true
+
+jobs:
+  workflow_dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "hello"
+          echo "arg1: $ARG1"
+        env:
+          ARG1: ${{ inputs.arg1 }}
