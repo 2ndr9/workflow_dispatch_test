@@ -1,5 +1,6 @@
 name: workflow dispatch test
 on:
+  push:
   workflow_dispatch:
     inputs:
       arg1:
