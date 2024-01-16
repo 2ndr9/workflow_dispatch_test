@@ -1,0 +1,17 @@
+name: workflow dispatch test2
+on:
+  workflow_dispatch:
+    inputs:
+      arg1:
+        description: "description foo"
+        required: true
+
+jobs:
+  workflow_dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+      - run: |
+          export ARG1="${{ github.event.inputs.arg1 }}"
+          node .github/workflows/test2.js
